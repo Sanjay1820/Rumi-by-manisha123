@@ -1,0 +1,7 @@
+{
+    "product_id": 7,
+    "author_name": "Test User",
+    "rating": 5,
+    "comment": "Testing submission from curl",
+    "status": "pending"
+}

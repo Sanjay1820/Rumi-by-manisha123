@@ -1,0 +1,16 @@
+id | int(11) | Null:NO | Default:NULL
+name | varchar(255) | Null:YES | Default:NULL
+email | varchar(255) | Null:NO | Default:NULL
+password | varchar(255) | Null:NO | Default:NULL
+first_name | varchar(100) | Null:NO | Default:NULL
+last_name | varchar(100) | Null:NO | Default:NULL
+phone | varchar(20) | Null:YES | Default:NULL
+address | varchar(500) | Null:YES | Default:NULL
+city | varchar(100) | Null:YES | Default:NULL
+pincode | varchar(20) | Null:YES | Default:NULL
+role | enum('customer','admin') | Null:YES | Default:customer
+status | enum('active','inactive','suspended') | Null:YES | Default:active
+email_verified | tinyint(1) | Null:YES | Default:0
+created_at | timestamp | Null:NO | Default:current_timestamp()
+updated_at | timestamp | Null:NO | Default:current_timestamp()
+last_login | timestamp | Null:YES | Default:NULL

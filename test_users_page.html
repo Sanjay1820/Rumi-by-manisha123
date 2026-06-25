@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Users API Test</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #1a1d23; color: white; }
+        .result { background: #2a2d33; padding: 20px; border-radius: 10px; margin: 20px 0; }
+        button { background: #d4af37; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #e5c047; }
+        pre { background: #000; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Users API Diagnostic</h1>
+    <button onclick="testAPI()">Test Users API</button>
+    <div id="result" class="result"></div>
+
+    <script>
+        async function testAPI() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<p>Loading...</p>';
+            
+            try {
+                const response = await fetch('http://localhost/chic-boutique-hub-main/backend/api/users.php');
+                const data = await response.json();
+                
+                resultDiv.innerHTML = `
+                    <h3>✅ API Response (Status: ${response.status})</h3>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                    <p><strong>Total Users:</strong> ${data.data ? data.data.length : 0}</p>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <h3>❌ Error</h3>
+                    <p>${error.message}</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
